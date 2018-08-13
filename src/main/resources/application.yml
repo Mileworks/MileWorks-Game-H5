@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+spring: 
+  output:
+    ansi:
+      enabled: always
+  messages:
+    basename: /i18n/message
+  profiles: 
+    active: dev  
+  datasource:  
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.29.231.80:3306/FindDao?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: newpwd
+    
+    
+################################################################################################################  
+###Disruptor (DisruptorProperties) 基本配置：  
+################################################################################################################  
+  disruptor:
+    enabled: true
+    multi-producer: false
+    ring-buffer-size: 1024
+    ring-thread-numbers:  4
+    #handler-definitions:
+    # - /Event-DC-Output/TagA-Output/** = emailHandler
+    # - /Event-DC-Output/TagB-Output/** = smsHandler 
+ 
+#日志级别
+logging: 
+  config: classpath:log4j2.xml
+    
