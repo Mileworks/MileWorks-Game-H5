@@ -2,11 +2,11 @@ package com.mileworks.game.h5.websocket;
 
 import org.tio.utils.time.Time;
 
-public abstract class ShowcaseServerConfig {
+public abstract class MSGameServerConfig {
 	/**
 	 * 协议名字(可以随便取，主要用于开发人员辨识)
 	 */
-	public static final String PROTOCOL_NAME = "showcase";
+	public static final String PROTOCOL_NAME = "game-h5";
 	
 	public static final String CHARSET = "utf-8";
 	/**
@@ -26,7 +26,6 @@ public abstract class ShowcaseServerConfig {
 
 	/**
 	 * ip数据监控统计，时间段
-	 * @author tanyaowu
 	 *
 	 */
 	public static interface IpStatDuration {

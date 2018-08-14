@@ -9,15 +9,15 @@ import org.tio.core.stat.IpStat;
 import org.tio.core.stat.IpStatListener;
 import org.tio.utils.json.Json;
 
-public class ShowcaseIpStatListener implements IpStatListener {
-	private static Logger log = LoggerFactory.getLogger(ShowcaseIpStatListener.class);
+public class MSGameIpStatListener implements IpStatListener {
+	private static Logger log = LoggerFactory.getLogger(MSGameIpStatListener.class);
 
-	public static final ShowcaseIpStatListener me = new ShowcaseIpStatListener();
+	public static final MSGameIpStatListener me = new MSGameIpStatListener();
 
 	/**
 	 * 
 	 */
-	private ShowcaseIpStatListener() {
+	private MSGameIpStatListener() {
 	}
 
 	@Override

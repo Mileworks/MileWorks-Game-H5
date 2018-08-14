@@ -70,6 +70,35 @@
 		    <artifactId>tio-websocket-server</artifactId>
 		    <version>3.1.6.v20180808-RELEASE</version>
 		</dependency>
+		
+		<!-- 最自由的ip地址查询库 -->
+		<dependency>
+		    <groupId>org.lionsoul</groupId>
+		    <artifactId>ip2region</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
+		<!-- 微信相关 
+		<dependency>
+		  <groupId>com.github.binarywang</groupId>
+		  <artifactId>weixin-java-miniapp</artifactId>
+		  <version>3.1.0</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.github.binarywang</groupId>
+		  <artifactId>weixin-java-pay</artifactId>
+		  <version>3.1.0</version>
+		</dependency> -->
+
+		<!-- hazelcast 分布式缓存框架 后期可以考虑redis ？ 
+		<dependency>
+		    <groupId>com.hazelcast</groupId>
+		    <artifactId>hazelcast</artifactId>
+		    <version>3.10.4</version>
+		</dependency> -->
+
+				
 	</dependencies>
 
 	<build>

@@ -4,8 +4,8 @@ import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tio.core.Tio;
 import org.tio.core.ChannelContext;
+import org.tio.core.Tio;
 import org.tio.http.common.HttpRequest;
 import org.tio.http.common.HttpResponse;
 import org.tio.websocket.common.WsRequest;
@@ -13,13 +13,19 @@ import org.tio.websocket.common.WsResponse;
 import org.tio.websocket.common.WsSessionContext;
 import org.tio.websocket.server.handler.IWsMsgHandler;
 
-public class ShowcaseWsMsgHandler implements IWsMsgHandler {
-	private static Logger log = LoggerFactory.getLogger(ShowcaseWsMsgHandler.class);
+public class MSGameMsgHandler implements IWsMsgHandler {
+	private static Logger log = LoggerFactory.getLogger(MSGameMsgHandler.class);
 
-	public static final ShowcaseWsMsgHandler me = new ShowcaseWsMsgHandler();
+	public static final MSGameMsgHandler me = new MSGameMsgHandler();
 
-	private ShowcaseWsMsgHandler() {
+	protected MSWsServer server;
 
+	public MSWsServer getServer() {
+		return server;
+	}
+
+	public void setServer(MSWsServer server) {
+		this.server = server;
 	}
 
 	/**
@@ -42,14 +48,14 @@ public class ShowcaseWsMsgHandler implements IWsMsgHandler {
 	@Override
 	public void onAfterHandshaked(HttpRequest httpRequest, HttpResponse httpResponse, ChannelContext channelContext) throws Exception {
 		//绑定到群组，后面会有群发
-		Tio.bindGroup(channelContext, Const.GROUP_ID);
+		Tio.bindGroup(channelContext, Constant.GROUP_ID);
 		int count = Tio.getAllChannelContexts(channelContext.groupContext).getObj().size();
 
 		String msg = channelContext.getClientNode().toString() + " 进来了，现在共有【" + count + "】人在线";
 		//用tio-websocket，服务器发送到客户端的Packet都是WsResponse
-		WsResponse wsResponse = WsResponse.fromText(msg, ShowcaseServerConfig.CHARSET);
+		WsResponse wsResponse = WsResponse.fromText(msg, MSGameServerConfig.CHARSET);
 		//群发
-		Tio.sendToGroup(channelContext.groupContext, Const.GROUP_ID, wsResponse);
+		Tio.sendToGroup(channelContext.groupContext, Constant.GROUP_ID, wsResponse);
 	}
 
 	/**
@@ -88,9 +94,9 @@ public class ShowcaseWsMsgHandler implements IWsMsgHandler {
 
 		String msg = channelContext.getClientNode().toString() + " 说：" + text;
 		//用tio-websocket，服务器发送到客户端的Packet都是WsResponse
-		WsResponse wsResponse = WsResponse.fromText(msg, ShowcaseServerConfig.CHARSET);
+		WsResponse wsResponse = WsResponse.fromText(msg, MSGameServerConfig.CHARSET);
 		//群发
-		Tio.sendToGroup(channelContext.groupContext, Const.GROUP_ID, wsResponse);
+		Tio.sendToGroup(channelContext.groupContext, Constant.GROUP_ID, wsResponse);
 
 		//返回值是要发送给客户端的内容，一般都是返回null
 		return null;

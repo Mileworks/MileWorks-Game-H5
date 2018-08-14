@@ -33,3 +33,13 @@ spring:
 logging: 
   config: classpath:log4j2.xml
     
+#tio相关    
+mk:
+  im:
+    server:
+      port: 9081 
+      host: localhost
+      threads: 5000  
+      
+      
+      
