@@ -10,4 +10,6 @@
 
 
 规则引擎：http://www.doc88.com/p-5109894653551.html  
-状态机：https://www.indienova.com/indie-game-development/finite-state-machines/
+状态机：  
+           https://www.indienova.com/indie-game-development/finite-state-machines/  
+           https://github.com/spring-projects/spring-statemachine
