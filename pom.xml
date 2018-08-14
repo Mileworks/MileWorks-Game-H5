@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<drools.version>7.9.0.Final</drools.version>
 	</properties>
 
 	<dependencies>
@@ -61,6 +62,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
 		    <groupId>com.github.vindell</groupId>
 		    <artifactId>spring-boot-starter-disruptor</artifactId>
 		    <version>1.0.0.RELEASE</version>
@@ -76,6 +81,12 @@
 		    <groupId>org.lionsoul</groupId>
 		    <artifactId>ip2region</artifactId>
 		    <version>1.4</version>
+		</dependency>
+		
+		<!-- 时间相关 -->
+		<dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
 		</dependency>
 		
 		<!-- 微信相关 
@@ -98,7 +109,60 @@
 		    <version>3.10.4</version>
 		</dependency> -->
 
-				
+		<!-- 规则引擎相关 -->
+		<dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-decisiontables</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-templates</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+		
+		<dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-spring</artifactId>
+            <version>${drools.version}</version>
+            <!-- Sadly kie-spring depends upon spring 3.2, but we need 4x to run smoothly with spring boot
+            	 and while http://books.sonatype.com/mvnref-book/reference/pom-relationships-sect-project-dependencies.html
+            	 is not working for us, we need to exclude the 3.2-dependencies -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 	</dependencies>
 
 	<build>
