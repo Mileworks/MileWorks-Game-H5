@@ -13,3 +13,4 @@
 状态机：  
            https://www.indienova.com/indie-game-development/finite-state-machines/  
            https://github.com/spring-projects/spring-statemachine
+           https://github.com/spik3r/statemachine  
