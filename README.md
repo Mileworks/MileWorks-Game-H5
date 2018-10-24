@@ -14,3 +14,5 @@
            https://www.indienova.com/indie-game-development/finite-state-machines/  
            https://github.com/spring-projects/spring-statemachine  
            https://github.com/spik3r/statemachine  
+
+- 商城app ： https://gitee.com/old-peanut/wechat_applet__open_source
